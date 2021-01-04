@@ -4,8 +4,8 @@
  * Module dependencies.
  */
 
-var app = require('../app');
-var debug = require('debug')('fullstack-forum:server');
+var app = require('../main/app');
+var debug = require('debug')('server:server');
 var http = require('http');
 
 /**

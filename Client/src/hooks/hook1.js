@@ -30,15 +30,23 @@ const HooksContainer1 = () => {
   }
 
   const handleDispatchTrue = () => {
-    //    dispatch2(type: "SUCCESS")
-    //    dispatch2(ACTIONS.SUCCESS)
+    //    dispatch(type: "SUCCESS")
+    //    dispatch(ACTIONS.SUCCESS)
     dispatch(ACTIONS.success())
   }
 
   const handleDispatchFalse = () => {
-    //     dispatch2(type: "FAILURE")
-    //    dispatch2(ACTIONS.FAILURE)
+    //     dispatch(type: "FAILURE")
+    //    dispatch(ACTIONS.FAILURE)
     dispatch(ACTIONS.failure())
+  }
+
+  const handleContextDispatchTrue = () => {
+    context.dispatchContextTrue()
+  }
+
+  const handleContextDispatchFalse = () => {
+    context.dispatchContextFalse()
   }
 
   return (
@@ -47,8 +55,8 @@ const HooksContainer1 = () => {
       <button onClick={() => handleuseEffectValue()}> Handle Value  </button>
       <button onClick={() => handleDispatchTrue()}>Dispatch True </button>
       <button onClick={() => handleDispatchFalse()}>Dispatch False </button>
-      <button onClick={() => context.dispatchContextTrue()}>Dispatch Context True </button>
-      <button onClick={() => context.dispatchContextFalse()}>Dispatch Context False </button>
+      <button onClick={() => handleContextDispatchTrue()}>Dispatch Context True </button>
+      <button onClick={() => handleContextDispatchFalse()}>Dispatch Context False </button>
       <button onClick={() => incrementValue()}> Add Local Value </button>
       <button onClick={() => decrementValue()}> Dec Local Value </button>
       <br />
@@ -59,13 +67,13 @@ const HooksContainer1 = () => {
       }
       <br />
       {state.stateprop1
-        ? <p> stateprop1 is true </p>
-        : <p> stateprop1 is false </p>
+        ? <p> Local stateprop1 is true </p>
+        : <p> Local stateprop1 is false </p>
       }
       <br />
-      {context.stateProp2
-        ? <p> stateprop2 is true </p>
-        : <p> stateprop2 is false </p>
+      {context.stateProp1
+        ? <p> Global Context stateprop1 is true </p>
+        : <p> Global Context stateprop1 is false </p>
       }
       <br />
       {useEffectValue
@@ -80,5 +88,7 @@ const HooksContainer1 = () => {
     </div>
   )
 }
+
+
 
 export default HooksContainer1;
